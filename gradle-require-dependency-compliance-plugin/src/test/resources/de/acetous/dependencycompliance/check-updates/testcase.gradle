@@ -13,11 +13,11 @@ plugins {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    runtime(
+    runtimeOnly(
             'com.google.code.gson:gson:2.8.5'
     )
 }

@@ -63,7 +63,7 @@ public class CheckTest extends AbstractTest {
         copyFile("check/report-missing-repository.json", "dependency-compliance-report.json");
         BuildResult result = createGradleRunner().withArguments("dependencyComplianceCheck", "--stacktrace").buildAndFail();
         assertThat(result.task(":dependencyComplianceCheck").getOutcome()).isEqualTo(TaskOutcome.FAILED);
-        assertThat(result.getOutput()).contains("Repository is not listed in dependency compliance export: 'BintrayJCenter (https://jcenter.bintray.com/)'");
+        assertThat(result.getOutput()).contains("Repository is not listed in dependency compliance export: 'MavenRepo (https://repo.maven.apache.org/maven2/)'");
         assertTaskFailSummary(result);
     }
 

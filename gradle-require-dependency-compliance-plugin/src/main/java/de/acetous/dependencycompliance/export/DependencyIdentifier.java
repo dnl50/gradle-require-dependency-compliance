@@ -1,7 +1,7 @@
 package de.acetous.dependencycompliance.export;
 
 import com.google.gson.annotations.SerializedName;
-import org.gradle.api.artifacts.ModuleVersionIdentifier;
+import org.gradle.api.artifacts.component.ModuleComponentIdentifier;
 
 import java.util.Objects;
 
@@ -20,14 +20,14 @@ public class DependencyIdentifier {
     private final String version;
 
     /**
-     * Creates a {@code DependencyIdentifier} from a given {@link ModuleVersionIdentifier}.
+     * Creates a {@code DependencyIdentifier} from a given {@link ModuleComponentIdentifier}.
      *
-     * @param moduleVersionIdentifier The {@code ModuleVersionIdentifier} to create this object from.
+     * @param componentIdentifier The {@code ModuleComponentIdentifier} to create this object from.
      */
-    public DependencyIdentifier(ModuleVersionIdentifier moduleVersionIdentifier) {
-        group = moduleVersionIdentifier.getGroup();
-        name = moduleVersionIdentifier.getName();
-        version = moduleVersionIdentifier.getVersion();
+    public DependencyIdentifier(ModuleComponentIdentifier componentIdentifier) {
+        group = componentIdentifier.getGroup();
+        name = componentIdentifier.getModule();
+        version = componentIdentifier.getVersion();
     }
 
     private DependencyIdentifier(String group, String name, String version) {

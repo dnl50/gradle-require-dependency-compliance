@@ -13,14 +13,14 @@ plugins {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    compile(
+    implementation(
             'org.springframework:spring-context-support:5.0.7.RELEASE',
     )
-    testCompile(
+    testImplementation(
             'com.google.code.gson:gson:2.8.5'
     )
 }

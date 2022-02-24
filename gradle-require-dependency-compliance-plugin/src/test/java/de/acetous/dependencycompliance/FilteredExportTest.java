@@ -58,8 +58,8 @@ public class FilteredExportTest extends AbstractTest {
         Collection<RepositoryIdentifier> repositories = dependencyExport.getRepositories();
         assertThat(repositories).hasSize(1);
         repositories.forEach(repositoryIdentifier -> {
-            assertThat(repositoryIdentifier.getName()).isEqualTo("BintrayJCenter");
-            assertThat(repositoryIdentifier.getUrl()).isEqualTo("https://jcenter.bintray.com/");
+            assertThat(repositoryIdentifier.getName()).isEqualTo("MavenRepo");
+            assertThat(repositoryIdentifier.getUrl()).isEqualTo("https://repo.maven.apache.org/maven2/");
         });
     }
 

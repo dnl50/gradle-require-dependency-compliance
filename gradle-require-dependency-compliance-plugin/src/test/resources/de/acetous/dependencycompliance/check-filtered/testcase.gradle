@@ -16,14 +16,14 @@ plugins {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    runtime(
+    runtimeOnly(
             'com.google.code.gson:gson:2.8.5',
     )
-    testCompile(
+    testImplementation(
             'junit:junit:4.12',
             'org.assertj:assertj-core:3.10.0',
     )

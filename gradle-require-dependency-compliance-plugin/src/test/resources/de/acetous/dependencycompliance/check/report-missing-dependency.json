@@ -10,8 +10,8 @@
   ],
   "repositories": [
     {
-      "name": "BintrayJCenter",
-      "url": "https://jcenter.bintray.com/"
+      "name": "MavenRepo",
+      "url": "https://repo.maven.apache.org/maven2/"
     }
   ],
   "buildRepositories": [

@@ -11,12 +11,12 @@ plugins {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 
 dependencies {
-    compile(
+    implementation(
             project(':submodule')
     )
 }

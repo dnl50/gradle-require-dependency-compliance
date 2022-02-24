@@ -10,19 +10,20 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
-
-import static org.assertj.core.api.Assertions.fail;
+import java.nio.charset.StandardCharsets;
 
 public abstract class AbstractTest {
 
     @Rule
     public final TemporaryFolder testProjectDir = new TemporaryFolder();
+
     protected Gson gson = new Gson();
 
     @Before
     public void createGradleProperties() throws IOException {
-        FileUtils.copyInputStreamToFile(getClass().getClassLoader().getResourceAsStream("testkit-gradle.properties"), testProjectDir.newFile("gradle.properties"));
+        try (InputStream propertiesStream = getClass().getClassLoader().getResourceAsStream("testkit-gradle.properties")) {
+            FileUtils.copyInputStreamToFile(propertiesStream, testProjectDir.newFile("gradle.properties"));
+        }
     }
 
     protected DependencyExport parseDependencyExport() {
@@ -35,10 +36,9 @@ public abstract class AbstractTest {
 
     protected String readFile(String file) {
         try {
-            return FileUtils.readFileToString(testProjectDir.getRoot().toPath().resolve(file).toFile(), Charset.forName("UTF-8"));
+            return FileUtils.readFileToString(testProjectDir.getRoot().toPath().resolve(file).toFile(), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            fail("File '%s' could not be read.", file, e);
-            return "";
+            throw new IllegalStateException(String.format("File '%s' not found in temporary project directory.", file));
         }
     }
 

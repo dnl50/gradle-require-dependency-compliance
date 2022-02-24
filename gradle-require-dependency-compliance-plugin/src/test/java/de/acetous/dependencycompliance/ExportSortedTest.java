@@ -33,7 +33,7 @@ public class ExportSortedTest extends AbstractTest {
     @Test
     public void dependenciesShouldBeResolved() {
         DependencyExport dependencyExport = parseDependencyExport();
-        assertThat(dependencyExport.getDependencies()).hasSize(16);
+        assertThat(dependencyExport.getDependencies()).hasSize(17);
         assertThat(dependencyExport.getBuildDependencies()).hasSize(2);
     }
 
